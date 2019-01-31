@@ -18,13 +18,38 @@ public class Findesemana {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] dia = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
-        String hora="12:45";        
+        String dia;
+        System.out.println("Introduce el dia: ");
+        dia=sc.nextLine();
+        
+        String hora;
+        System.out.println("Introduce la hora: ");
+        hora=sc.nextLine();
         String[] parts = hora.split(":");
         String part1 = parts[0]; 
         String part2 = parts[1];
-        int diaNumerico=0;
-        
+        int contador=0;
+        if (dia.equals("Lunes")){
+            contador= 0;
+        }
+        else if(dia.equals("Martes")){
+            contador=1;
+        }
+        else if(dia.equals("Miercoles")){
+            contador=2;
+        }
+        else if(dia.equals("Jueves")){
+            contador=3;
+        }
+        else if(dia.equals("Viernes")){
+            contador=4;
+        }
+        int min= Integer.parseInt(part1);
+        min = min*60;
+        int mindia = Integer.parseInt(part2) + min;
+        int mintotales = (4*24*60)+(60*15);
+        int minactuales = mintotales - ((contador*24*60)+ mindia) ;
+        System.out.println("Faltan "+minactuales+" minutos para el fin de semana");
     }
 
 }
